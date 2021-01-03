@@ -1,0 +1,126 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+ion-content {
+  --background: #121212;
+  --ion-text-color: #ffffff;
+}
+
+ion-toolbar {
+  --background: #1F1F1F;
+  --ion-text-color: #ffffff;
+}
+
+ion-segment {
+  --background: #1F1F1F;
+  // text-decoration-color: #ffffff;
+  // --color-checked: #3dc2ff;
+  // --indicator-color: #3dc2ff;
+  // color: #3dc2ff;
+}
+
+ion-tab-bar {
+  --background: #1F1F1F;
+  --ion-text-color: #ffffff;
+}
+
+ion-card {
+  --ion-text-color: #ffffff;
+  --background: #1d1c1c; //161515
+}
+ion-title {
+  font-weight: bold;
+}
+
+ion-item {
+  --ion-text-color: #ffffff;
+  --background: #161515;
+}
+
+ion-icon {
+  --ion-text-color: #ffffff;
+}
+
+// ion-list {
+//   --background: #121212;
+// }
+
+// ion-button {
+//   --background: #3dc2ff;
+// }
+
+ion-tab-button {
+  --color: #ffffff;
+  --color-selected: #3dc2ff;
+  // orange for light theme #FF7A3D #FF570A
+  // --ripple-color: #3dc2ff;
+}
+
+// ion-fab-button {
+//   --background: #3dc2ff;
+// }
+
+// dark theme option 1
+// card #2f2d41
+// background/tabs/header #252436 #2d2b41 #232130
+// color selected #31cbba ou #2fa3d3
+
+
+// dark theme option 2
+// card  #3d3f43
+// background/tabs/header #303236 #353536 #C4C8CA #7F7F83
+// color selected #2aa0c5 #2CA1C0 #2991A2
+
+
+// dark theme option 3
+// card  #1b2431
+// background/tabs/header #161e29  #828896
+// color selected #f86c9d
+
+
+// dark theme option 4
+// card #222222
+// background/tabs/header #171717
+// color selected #5b73d8 secondary #65e2be
+
+
+// dark theme option 5
+// card #1e2531
+// background/tabs/header  #242c38 #181f2b
+// color selected #181f2b #4775de
+
+
+// mixed theme
+// card #5e89ff #4d5eff
+// background/tabs/header #f3f6ff #272157
+// color selected  #3e377a
+
+
+// light theme option 1
+// card  #ffffff #000000
+// background/tabs/header #f1f1f1 #292929 #7C7C7C
+// color selected  #5477ef

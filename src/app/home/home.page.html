@@ -1,0 +1,17 @@
+<ion-router-outlet id="main" [animated]="false"></ion-router-outlet>
+
+<ion-content [fullscreen]="true">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-icon name="menu-sharp" style="margin-left:15px;" slot="start" class="menuIcon" (click)="openMenuButton();"></ion-icon>
+      <ion-title class="headerPadding">Home</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <strong>Home page</strong><br>
+    <p>Welcome back, {{user}}</p>
+    <p>Your currently active program is: {{activeProgram}}</p>
+    <p>Light Weight, Baby!</p>
+  </div>
+</ion-content>

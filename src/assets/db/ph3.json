@@ -1,0 +1,54 @@
+{
+
+      "day": [
+        {
+              "exercice": "Squat",
+              "has1RM": true,
+              "oneRM": 140,
+              "percentage": 80,
+              "weight": 80,
+              "sets": 3,
+              "reps": 5,
+              "hasRPE": true,
+              "rpe": 6,
+              "isAMRAP": true,
+              "amrap": 7,
+              "hasRIR": true,
+              "rir": 4,
+              "description": "test1"
+        },
+        {
+              "exercice": "Bench",
+              "has1RM": true,
+              "oneRM": 115,
+              "percentage": 80,
+              "weight": 80,
+              "sets": 3,
+              "reps": 5,
+              "hasRPE": true,
+              "rpe": 6,
+              "isAMRAP": true,
+              "amrap": 7,
+              "hasRIR": true,
+              "rir": 4,
+              "description": "test2"
+        },
+        {
+              "exercice": "Deadlift",
+              "has1RM": true,
+              "oneRM": 165,
+              "percentage": 80,
+              "weight": 80,
+              "sets": 3,
+              "reps": 5,
+              "hasRPE": true,
+              "rpe": 6,
+              "isAMRAP": true,
+              "amrap": 7,
+              "hasRIR": true,
+              "rir": 4,
+              "description": "test3"
+        }
+      ]
+
+}

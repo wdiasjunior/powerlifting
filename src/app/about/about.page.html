@@ -1,0 +1,27 @@
+<ion-router-outlet id="main" [animated]="false"></ion-router-outlet>
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-icon name="arrow-back-sharp" style="margin-left:15px;" slot="start" class="menuIcon" (click)="goBack();"></ion-icon>
+    <ion-title class="headerPadding">About</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <strong>By powerlifters, to powerlifters.</strong><br><br>
+
+    <br><p>An open source project created to make</p>
+    <p>training log a better experience.</p><br>
+
+    <p>To report bugs, suggest new features</p>
+    <p>or if want to contribute to the project</p>
+    <p>access the link below.</p><br>
+    <p><a style="color: #3dc2ff;" href="https://github.com/" target="_blank">GitHub Repository</a></p><br>
+
+    <p>This app is ad free.<br>If you feel like it, please support the developer.</p><br>
+    <p><a style="color: #3dc2ff;" href="https://paypal.com/" target="_blank">Donate</a></p><br><br><br>
+    <p style="color: #ffffff">Created by Wellington Junior.</p>
+  </div>
+
+</ion-content>

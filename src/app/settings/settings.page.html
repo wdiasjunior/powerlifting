@@ -1,0 +1,58 @@
+<ion-router-outlet id="main" [animated]="false"></ion-router-outlet>
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-icon name="arrow-back-sharp" style="margin-left:15px;" slot="start" class="menuIcon" (click)="goBack();"></ion-icon>
+    <ion-title class="headerPadding">Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-list>
+
+    <ion-item>
+      <ion-icon style="color: #ffffff" name="pizza" slot="start"></ion-icon>
+      <label>Use Metric Units</label>
+      <ion-toggle checked color="secondary" slot="end"></ion-toggle>
+    </ion-item><br>
+
+    <ion-item>
+      <ion-icon style="color: #ffffff" name="list" slot="start"></ion-icon>
+      <label>Calculation Formulas</label>
+      <label>Select the formulas used to calculate your 1RM</label>
+    </ion-item><br>
+
+    <ion-item>
+      <label>Weight increment button step size</label>
+      <p>Select the formulas used to calculate your 1RM</p>
+    </ion-item><br>
+
+    <ion-item>
+      <ion-icon style="color: #ffffff; transform: rotate(180deg);" name="download" slot="start"></ion-icon>
+      <label>Import program</label>
+      <p>Please select a .csv file</p>
+    </ion-item><br>
+
+    <ion-item>
+      <ion-icon style="color: #ffffff" name="download" slot="start"></ion-icon>
+      <label>Export</label>
+      <p>Export a single program .csv file or your entire data</p>
+    </ion-item><br>
+
+    <ion-item>
+      <ion-icon style="color: #ffffff" name="hand-left" slot="start"></ion-icon>
+      <label>Greeting sentences</label>
+      <label>Enable or disable funny greeting messages on home page</label>
+      <ion-toggle checked color="secondary" slot="end"></ion-toggle>
+    </ion-item><br>
+
+    <ion-item>
+      <ion-icon style="color: #ffffff" name="brush" slot="start"></ion-icon>
+      <label>Dark Theme</label>
+      <ion-toggle checked color="secondary" slot="end"></ion-toggle>
+    </ion-item><br>
+
+  </ion-list>
+
+</ion-content>

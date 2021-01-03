@@ -1,0 +1,441 @@
+<ion-router-outlet id="main" [animated]="false"></ion-router-outlet>
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-icon name="menu-sharp" style="margin-left:15px;" slot="start" class="menuIcon" (click)="openMenuButton();"></ion-icon>
+    <ion-title class="headerPadding">1RM Calculator</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<div id="weightInput" *ngIf="!weightInputClosed" style="z-index: +1;">
+  <ion-card class="numberInput">
+    <ion-item style="margin-bottom: 20px" color="transparent">
+      <ion-label>{{weightInput}} {{weightUnit}}</ion-label>
+      <ion-icon slot="end" name="backspace" (click)="deleteLastCharacter()"></ion-icon>
+    </ion-item>
+
+    <ion-row>
+        <ion-col size="4">
+            <ion-item button color="transparent" lines="none" (click)="concatenate('1')">
+              <ion-label> 1 </ion-label>
+            </ion-item>
+        </ion-col>
+        <ion-col size="4">
+            <ion-item button color="transparent" lines="none" (click)="concatenate('2')">
+              <ion-label> 2 </ion-label>
+            </ion-item>
+        </ion-col>
+        <ion-col size="4">
+            <ion-item button color="transparent" lines="none" (click)="concatenate('3')">
+              <ion-label> 3 </ion-label>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col size="4">
+            <ion-item button color="transparent" lines="none" (click)="concatenate('4')">
+              <ion-label> 4 </ion-label>
+            </ion-item>
+        </ion-col>
+        <ion-col size="4">
+            <ion-item button color="transparent" lines="none" (click)="concatenate('5')">
+              <ion-label> 5 </ion-label>
+            </ion-item>
+        </ion-col>
+        <ion-col size="4">
+            <ion-item button color="transparent" lines="none" (click)="concatenate('6')">
+              <ion-label> 6 </ion-label>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col size="4">
+            <ion-item button color="transparent" lines="none" (click)="concatenate('7')">
+              <ion-label> 7 </ion-label>
+            </ion-item>
+        </ion-col>
+        <ion-col size="4">
+            <ion-item button color="transparent" lines="none" (click)="concatenate('8')">
+              <ion-label> 8 </ion-label>
+            </ion-item>
+        </ion-col>
+        <ion-col size="4">
+            <ion-item button color="transparent" lines="none" (click)="concatenate('9')">
+              <ion-label> 9 </ion-label>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col size="4">
+            <ion-item color="transparent" lines="none">
+              <ion-label>  </ion-label>
+            </ion-item>
+        </ion-col>
+        <ion-col size="4">
+            <ion-item button color="transparent" lines="none" (click)="concatenate('0')">
+              <ion-label> 0 </ion-label>
+            </ion-item>
+        </ion-col>
+        <ion-col size="4">
+            <ion-item color="transparent" lines="none">
+              <ion-label>  </ion-label>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+
+    <ion-row style="text-align: right; margin-top: 5px">
+      <ion-col size="4"></ion-col>
+      <ion-col size="8">
+        <ion-button fill="clear" color="dark">
+          <ion-label (click)="closeWeightInput('cancel');" style="font-size: 19px; font-weight: bold; color: #FFFFFF"> CANCEL </ion-label>
+        </ion-button>
+        <ion-button fill="clear" [disabled]="!weightCheck" color="dark">
+          <ion-label (click)="closeWeightInput('ok');" style="margin-right: 100%; font-size: 19px; font-weight: bold; color: #FFFFFF"> OK </ion-label>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-backdrop (click)="closeWeightInput();" id="backdrop1" tappable="true"></ion-backdrop>
+</div>
+
+<div id="repsInput" *ngIf="!repInputClosed" style="z-index: +1;">
+  <ion-card class="numberInput">
+    <ion-item style="margin-bottom: 20px" color="transparent">
+      <ion-label>{{repInput}} REPS</ion-label>
+      <ion-icon slot="end" name="backspace" (click)="deleteLastCharacter()"></ion-icon>
+    </ion-item>
+
+    <ion-row>
+        <ion-col size="4">
+            <ion-item button color="transparent" lines="none" (click)="concatenate('1')">
+              <ion-label> 1 </ion-label>
+            </ion-item>
+        </ion-col>
+        <ion-col size="4">
+            <ion-item button color="transparent" lines="none" (click)="concatenate('2')">
+              <ion-label> 2 </ion-label>
+            </ion-item>
+        </ion-col>
+        <ion-col size="4">
+            <ion-item button color="transparent" lines="none" (click)="concatenate('3')">
+              <ion-label> 3 </ion-label>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col size="4">
+            <ion-item button color="transparent" lines="none" (click)="concatenate('4')">
+              <ion-label> 4 </ion-label>
+            </ion-item>
+        </ion-col>
+        <ion-col size="4">
+            <ion-item button color="transparent" lines="none" (click)="concatenate('5')">
+              <ion-label> 5 </ion-label>
+            </ion-item>
+        </ion-col>
+        <ion-col size="4">
+            <ion-item button color="transparent" lines="none" (click)="concatenate('6')">
+              <ion-label> 6 </ion-label>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col size="4">
+            <ion-item button color="transparent" lines="none" (click)="concatenate('7')">
+              <ion-label> 7 </ion-label>
+            </ion-item>
+        </ion-col>
+        <ion-col size="4">
+            <ion-item button color="transparent" lines="none" (click)="concatenate('8')">
+              <ion-label> 8 </ion-label>
+            </ion-item>
+        </ion-col>
+        <ion-col size="4">
+            <ion-item button color="transparent" lines="none" (click)="concatenate('9')">
+              <ion-label> 9 </ion-label>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col size="4">
+            <ion-item color="transparent" lines="none">
+              <ion-label>  </ion-label>
+            </ion-item>
+        </ion-col>
+        <ion-col size="4">
+            <ion-item button color="transparent" lines="none" (click)="concatenate('0')">
+              <ion-label> 0 </ion-label>
+            </ion-item>
+        </ion-col>
+        <ion-col size="4">
+            <ion-item color="transparent" lines="none">
+              <ion-label>  </ion-label>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+
+    <ion-row style="text-align: right; margin-top: 5px">
+      <ion-col size="4"></ion-col>
+      <ion-col size="8">
+        <ion-button fill="clear" color="dark">
+          <ion-label (click)="closeRepsInput('cancel');" style="font-size: 19px; font-weight: bold; color: #FFFFFF"> CANCEL </ion-label>
+        </ion-button>
+        <ion-button fill="clear" [disabled]="!repCheck" color="dark">
+          <ion-label (click)="closeRepsInput('ok');" style="margin-right: 100%; font-size: 19px; font-weight: bold; color: #FFFFFF"> OK </ion-label>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-backdrop (click)="closeRepsInput();" id="backdrop2" tappable="true"></ion-backdrop>
+</div>
+
+<ion-content [fullscreen]="true">
+
+    <ion-card id="inputDiv" class="divSeparator1" style="height: 315px; text-align: center;">
+      <br><br><span>Weight Lifted</span><br>
+      <!-- <ion-ripple-effect></ion-ripple-effect> -->
+      <ion-row style="justify-content: center !important;">
+
+        <ion-col size="4">
+          <ion-button shape="round" fill="outline" class="buttonDecrement" (click)="decrementWeight(); oneRMCalc();" [disabled]="weightLifted == 0">
+            <ion-icon name="remove-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="4">
+          <ion-item  no-padding color="transparent" style="width: 95%; justify-content: center !important; text-align: center; padding-top: 10px;" (click)="openWeightInput()">
+            <ion-label>{{weightLifted}}</ion-label>
+            <!-- <ion-input value="{{weightLifted}}"></ion-input> -->
+            <ion-ripple-effect></ion-ripple-effect>
+          </ion-item>
+        </ion-col>
+
+        <ion-col size="4">
+          <ion-button shape="round" fill="outline" class="buttonIncrement" (click)="incrementWeight(); oneRMCalc();" [disabled]="weightLifted >= 2000">
+            <ion-icon name="add-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+      </ion-row>
+
+      <br><br><br><ion-label>Reps Performed</ion-label><br>
+      <ion-row style="justify-content: center !important;">
+
+        <ion-col size="4">
+          <ion-button shape="round" fill="outline" class="buttonDecrement" (click)="decrementReps(); oneRMCalc();" [disabled]="repsPerformed <= 1">
+            <ion-icon name="remove-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="4">
+          <ion-item  no-padding color="transparent" style="width: 95%; justify-content: center !important; text-align: center; padding-top: 10px;" (click)="openRepsInput()">
+              <ion-label>{{repsPerformed}}</ion-label>
+              <!-- <ion-input value="{{repsPerformed}}"></ion-input> -->
+          </ion-item>
+
+        </ion-col>
+
+        <ion-col size="4">
+          <ion-button shape="round" fill="outline" class="buttonIncrement" (click)="incrementReps(); oneRMCalc();" [disabled]="repsPerformed >= 20">
+            <ion-icon name="add-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+      </ion-row>
+    </ion-card>
+
+    <ion-card *ngIf="repsPerformed > 12" class="cardWarning">
+        <ion-card-content>
+            <ion-label>WARNING. Calculation accuracy drops drastically when calculating above 12 reps.</ion-label>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card id="rmDiv" class="divSeparator2" style="height: 450px;">
+      <br><ion-label style="margin-left: 25px;  color: #3dc2ff; font-size: 17px; font-weight: bold;">One Rep Max</ion-label><br><br>
+
+      <ion-row style="justify-content: center !important; text-align: center;">
+        <ion-item  no-padding color="transparent" class="ion-no-margin" style="width: 95%; justify-content: center !important; text-align: center; --padding-start: 0px !important;">
+          <ion-col size="6" style="padding-bottom: 20px;">
+            <ion-label style="padding-bottom: 7px;">{{e1rm}} {{weightUnit}}</ion-label>
+            <span>1RM</span>
+          </ion-col>
+
+          <ion-col size="6" style="padding-bottom: 20px;">
+            <ion-label style="padding-bottom: 7px;">{{e5rm}} {{weightUnit}}</ion-label>
+            <span>5RM</span>
+          </ion-col>
+        </ion-item>
+      </ion-row>
+
+      <ion-row style="justify-content: center !important; text-align: center;">
+          <ion-col size="6"><br>
+            <ion-label style="padding-right: 10px;">2RM</ion-label>
+            <ion-label class="bold">{{e2rm}} {{weightUnit}}</ion-label>
+          </ion-col>
+
+          <ion-col size="6"><br>
+            <ion-label style="padding-right: 10px;">8RM</ion-label>
+            <ion-label class="bold">{{e8rm}} {{weightUnit}}</ion-label>
+          </ion-col>
+      </ion-row>
+
+      <ion-row style="justify-content: center !important; text-align: center;">
+          <ion-col size="6"><br>
+            <ion-label style="padding-right: 10px;">3RM</ion-label>
+            <ion-label class="bold">{{e3rm}} {{weightUnit}}</ion-label>
+          </ion-col>
+
+          <ion-col size="6"><br>
+            <ion-label style="padding-right: 10px;">9RM</ion-label>
+            <ion-label class="bold">{{e9rm}} {{weightUnit}}</ion-label>
+          </ion-col>
+      </ion-row>
+
+      <ion-row style="justify-content: center !important; text-align: center;">
+          <ion-col size="6"><br>
+            <ion-label style="padding-right: 10px;">4RM</ion-label>
+            <ion-label class="bold">{{e4rm}} {{weightUnit}}</ion-label>
+          </ion-col>
+
+          <ion-col size="6"><br>
+            <ion-label style="padding-right: 10px;">10RM</ion-label>
+            <ion-label class="bold">{{e10rm}} {{weightUnit}}</ion-label>
+          </ion-col>
+      </ion-row>
+
+      <ion-row style="justify-content: center !important; text-align: center;">
+          <ion-col size="6"><br>
+            <ion-label style="padding-right: 10px;">5RM</ion-label>
+            <ion-label class="bold">{{e5rm}} {{weightUnit}}</ion-label>
+          </ion-col>
+
+          <ion-col size="6"><br>
+            <ion-label style="padding-right: 10px;">11RM</ion-label>
+            <ion-label class="bold">{{e11rm}} {{weightUnit}}</ion-label>
+          </ion-col>
+      </ion-row>
+
+      <ion-row style="justify-content: center !important; text-align: center;">
+          <ion-col size="6"><br>
+            <ion-label style="padding-right: 10px;">6RM</ion-label>
+            <ion-label class="bold">{{e6rm}} {{weightUnit}}</ion-label>
+          </ion-col>
+
+          <ion-col size="6"><br>
+            <ion-label style="padding-right: 10px;">12RM</ion-label>
+            <ion-label class="bold">{{e12rm}} {{weightUnit}}</ion-label>
+          </ion-col>
+      </ion-row>
+
+      <ion-row style="justify-content: center !important; text-align: center;">
+          <ion-col size="6"><br>
+            <ion-label style="padding-right: 10px;">7RM</ion-label>
+            <ion-label class="bold">{{e7rm}} {{weightUnit}}</ion-label>
+          </ion-col>
+
+          <ion-col size="6"><br>
+            <ion-label style="padding-right: 10px;">15RM</ion-label>
+            <ion-label class="bold">{{e15rm}} {{weightUnit}}</ion-label>
+          </ion-col>
+      </ion-row>
+
+    </ion-card>
+
+    <ion-card id="ormPercentageDiv" class="divSeparator3" style="height: 445px;">
+      <br><ion-label style="margin-left: 25px; color: #3dc2ff; font-size: 17px; font-weight: bold;">Percentage of 1RM</ion-label><br><br>
+
+      <ion-row style="justify-content: center !important; text-align: center;">
+        <ion-item  no-padding color="transparent" class="ion-no-margin" style="width: 95%; justify-content: center !important; text-align: center; --padding-start: 0px !important;">
+          <ion-col size="6" style="padding-bottom: 20px;">
+            <ion-label style="font-size: 30px; !important" class="bold">{{ormPercent105}}  {{weightUnit}}</ion-label>
+            <span>105%</span><br>
+          </ion-col>
+
+          <ion-col size="6" style="padding-bottom: 20px;">
+            <ion-label style="font-size: 30px; !important" class="bold">{{ormPercent1025}}  {{weightUnit}}</ion-label>
+            <span>102.5%</span><br>
+          </ion-col>
+        </ion-item>
+      </ion-row>
+
+      <ion-row style="justify-content: center !important; text-align: center;">
+        <ion-col size="6"><br>
+          <span style="padding-right: 10px;">95%</span>
+          <ion-label class="bold">{{ormPercent95}}  {{weightUnit}}</ion-label>
+        </ion-col>
+
+        <ion-col size="6"><br>
+          <span style="padding-right: 10px;">65%</span>
+          <ion-label class="bold">{{ormPercent65}}  {{weightUnit}}</ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row style="justify-content: center !important; text-align: center;">
+        <ion-col size="6"><br>
+          <span style="padding-right: 10px;">90%</span>
+          <ion-label class="bold">{{ormPercent90}}  {{weightUnit}}</ion-label>
+        </ion-col>
+
+        <ion-col size="6"><br>
+          <span style="padding-right: 10px;">60%</span>
+          <ion-label class="bold">{{ormPercent60}}  {{weightUnit}}</ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row style="justify-content: center !important; text-align: center;">
+        <ion-col size="6"><br>
+          <span style="padding-right: 10px;">85%</span>
+          <ion-label class="bold">{{ormPercent85}}  {{weightUnit}}</ion-label>
+        </ion-col>
+
+        <ion-col size="6"><br>
+          <span style="padding-right: 10px;">55%</span>
+          <ion-label class="bold">{{ormPercent55}}  {{weightUnit}}</ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row style="justify-content: center !important; text-align: center;">
+        <ion-col size="6"><br>
+          <span style="padding-right: 10px;">80%</span>
+          <ion-label class="bold">{{ormPercent80}}  {{weightUnit}}</ion-label>
+        </ion-col>
+
+        <ion-col size="6"><br>
+          <span style="padding-right: 10px;">50%</span>
+          <ion-label class="bold">{{ormPercent50}}  {{weightUnit}}</ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row style="justify-content: center !important; text-align: center;">
+        <ion-col size="6"><br>
+          <span style="padding-right: 10px;">75%</span>
+          <ion-label class="bold">{{ormPercent75}}  {{weightUnit}}</ion-label>
+        </ion-col>
+
+        <ion-col size="6"><br>
+          <span style="padding-right: 10px;">45%</span>
+          <ion-label class="bold">{{ormPercent45}}  {{weightUnit}}</ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row style="justify-content: center !important; text-align: center;">
+        <ion-col size="6"><br>
+          <span style="padding-right: 10px;">70%</span>
+          <ion-label class="bold">{{ormPercent70}}  {{weightUnit}}</ion-label>
+        </ion-col>
+
+        <ion-col size="6"><br>
+          <span style="padding-right: 10px;">40%</span>
+          <ion-label class="bold">{{ormPercent40}}  {{weightUnit}}</ion-label>
+        </ion-col>
+      </ion-row>
+
+    </ion-card>
+
+</ion-content>

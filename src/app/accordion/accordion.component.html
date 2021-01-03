@@ -1,0 +1,13 @@
+<ion-card>
+  <!-- <div> -->
+    <ion-item button detail="false" (click)="toggleAccordion()">
+      <ion-label text-wrap style="color: #FFFFFF; font-weight: bold; font-size: 15px;">{{ title }}</ion-label>
+      <!-- <ion-chip color="light" style="visibility: hidden;"><ion-label style="color: #FFFFFF; font-weight: bold; font-size: 15px;" >RPE {{rpe}}</ion-label></ion-chip> -->
+      <!-- <ion-label style="color: #FFFFFF; font-weight: bold; font-size: 15px;">{{ subTitle }}</ion-label> -->
+      <ion-icon slot="end" style="color: #FFFFFF;" [name]="icon"></ion-icon>
+    </ion-item>
+  <!-- </div> -->
+  <ion-card-content #expandWrapper>
+    <ng-content></ng-content>
+  </ion-card-content>
+</ion-card>

@@ -1,0 +1,32 @@
+.expand-wrapper {
+    transition: max-height 0.4s ease-in-out;
+    overflow: hidden;
+    height: auto;
+  }
+
+.collapsed {
+  max-height: 0 !important;
+}
+
+ion-item {
+  --background: #1d1c1c;
+}
+
+ion-card {
+  border-radius: 8px;
+  --background: #1d1c1c;
+  margin-bottom: 2px !important;
+  will-change: transform;
+}
+
+ion-card-content {
+  color: #ffffff !important;
+}
+
+ion-chip {
+  // --background: #3dc2ff;
+  ion-label {
+    color: #ffffff;
+    font-weight: bold;
+  }
+}

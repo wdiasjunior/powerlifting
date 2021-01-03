@@ -1,0 +1,98 @@
+<ion-router-outlet id="main" [animated]="false"></ion-router-outlet>
+
+<ion-header [translucent]="true" mode="md">
+  <ion-toolbar>
+    <ion-icon name="menu-sharp" style="margin-left:15px;" slot="start" class="menuIcon" (click)="openMenuButton();"></ion-icon>
+    <ion-title class="headerPadding">{{activeProgramName}}</ion-title>
+    <ion-icon name="ellipsis-vertical" style="margin-right:15px;" slot="end" class="menuIcon" (click)="optionsPopover();"></ion-icon>
+  </ion-toolbar>
+
+
+  <ion-segment [(ngModel)]="selectedSegment" value=selectedSegment (ionChange)="segmentChanged($event, i)" color="secondary" scrollable mode="md" scrollbar-x="false" mode="md">
+    <ion-segment-button mode="md" [value]="item" *ngFor="let item of segmentList; let i = index" (click)="_segmentSelected(item, i)" id="{{ 'segmentId' + i }}">
+      <ion-label>{{item}}</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+</ion-header>
+
+<ion-content>
+
+
+  <ion-slides #slide [options]="slideOptions" (ionSlideDidChange)="_ionSlideDidChange($event)" mode="md">
+    <ng-container *ngFor="let item of slideList" >
+      <ion-slide *ngFor="let data of activeProgramData" >
+      <!--           ion-list, ion-item, no padding, no lines.    accordion center subTitle text                -->
+      <!-- <ion-item *ngFor='let item of items | slice:start_at_item:end_at_item'> -->
+        <div no-lines no-padding no-margin mode="md">
+            <ion-item *ngFor="let dado of data.day" lines="none" mode="md">
+
+                <app-accordion title="{{dado.exercice}}" *ngIf="!dado.restDay">
+                  <ion-row>
+                    <ion-col size="auto">
+                      <ion-chip color="light">
+                        <ion-label style="padding-right: 10px; padding-left: 10px">{{dado.sets}} x {{dado.reps}}</ion-label>
+                      </ion-chip>
+                    </ion-col>
+
+                    <ion-col size="auto" no-padding>
+                      <ion-chip color="light" style="width: 160px" *ngIf="dado.weightInput">
+                        <ion-label class="amrapChip">Weight: </ion-label>
+                        <ion-input style="text-align: right;" [attr.maxlength]="4" [(ngModel)]="dado.weight" (keyup)="setWeight();"></ion-input>
+                        <ion-label style="padding-right: 10px; margin-left: 5px"> kg </ion-label>
+                      </ion-chip>
+                    </ion-col>
+                  </ion-row>
+
+                  <ion-row>
+                    <ion-col size="auto">
+                      <ion-chip color="light" *ngIf="dado.percentage != 0">
+                        <ion-label>{{dado.percentage}}%</ion-label>
+                      </ion-chip>
+                    </ion-col>
+
+                    <ion-col size="auto" no-padding>
+                      <ion-chip color="light" *ngIf="dado.rpe != 0">
+                        <ion-label>RPE {{dado.rpe}}</ion-label>
+                      </ion-chip>
+                    </ion-col>
+
+                    <ion-col size="auto">
+                      <ion-chip color="light" style="width: 120px" *ngIf="dado.isAMRAP">
+                        <ion-label class="amrapChip">AMRAP: </ion-label>
+                        <ion-input [attr.maxlength]="2" [(ngModel)]="dado.amrap" (keyup)="setAMRAP();"></ion-input>
+                      </ion-chip>
+                    </ion-col>
+                  </ion-row>
+
+                  <ion-row>
+                    <ion-col size="12">
+                      <b align="justify" *ngIf='dado.description !== ""'>
+                        Description: <p align="justify">
+                          {{dado.description}}
+                        </p>
+                      </b>
+
+                    </ion-col>
+                  </ion-row>
+
+                  <ion-label style="font-weight: bold; margin-left: 5px;">Sets Performed: </ion-label>
+                  <ion-row>
+                    <ion-col size="auto" *ngFor="let i of counter(dado.sets)">
+                      <ion-checkbox color="secondary"></ion-checkbox>
+                    </ion-col>
+                  </ion-row>
+                </app-accordion>
+
+                <b style="text-align: center; transform: translateY(-50%); position: relative; top: 50%; margin: auto;" *ngIf="dado.restDay"> Rest Day </b>
+
+            </ion-item>
+            <!-- <ion-button shape="round" mode="md" class="buttonFinish" color="secondary" *ngIf="!data.day.restDay">Finish Workout</ion-button>   -->
+            <!-- *ngIf="!dado.restDay" -->
+        </div>
+
+      </ion-slide>
+    </ng-container>
+  </ion-slides>
+
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-router-outlet id="main" [animated]="false"></ion-router-outlet>
+
+<ion-header>
+  <ion-toolbar>
+      <ion-icon name="menu-sharp" style="margin-left:15px;" slot="start" class="menuIcon" (click)="openMenuButton();"></ion-icon>
+    <ion-title class="headerPadding">Program Management</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container">
+    <strong>This is where you'll add</strong><br>
+    <strong>and edit your training programs.</strong><br>
+    <!-- <br><p>.</p><br> -->
+  </div>
+
+    <!-- <ion-fab vertical="bottom" horizontal="end" style="position: fixed; --padding-end: 20px;" color="secondary">
+      <ion-fab-button>
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab> -->
+
+    <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+        <ion-fab-button color="secondary">
+          <ion-icon md="chevron-up" color="dark"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list side="top">
+          <ion-fab-button color="light">
+            <ion-icon name="add" color="dark"></ion-icon>
+          </ion-fab-button>
+          <ion-fab-button color="light">
+            <ion-icon name="create" color="dark"></ion-icon>
+          </ion-fab-button>
+        </ion-fab-list>
+      </ion-fab>
+
+</ion-content>
