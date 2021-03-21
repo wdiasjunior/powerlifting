@@ -4,7 +4,7 @@
     {
       "day": [
         {
-              "exercice": "Remada barra reta*",
+              "exerciceName": "Remada barra reta*",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -19,7 +19,7 @@
               "restDay": false
         },
         {
-              "exercice": "Puxada pegada aberta",
+              "exerciceName": "Puxada pegada aberta",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -34,7 +34,7 @@
               "restDay": false
         },
         {
-              "exercice": "Puxada pegada neutra",
+              "exerciceName": "Puxada pegada neutra",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -49,7 +49,7 @@
               "restDay": false
         },
         {
-              "exercice": "Supino barra reta*",
+              "exerciceName": "Supino barra reta*",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -64,7 +64,7 @@
               "restDay": false
         },
         {
-              "exercice": "Mergulho paralela",
+              "exerciceName": "Mergulho paralela",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -79,7 +79,7 @@
               "restDay": false
         },
         {
-              "exercice": "Desenvolvimento HBC sentado",
+              "exerciceName": "Desenvolvimento HBC sentado",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -94,7 +94,7 @@
               "restDay": false
         },
         {
-              "exercice": "Biceps barra w",
+              "exerciceName": "Biceps barra w",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -109,7 +109,7 @@
               "restDay": false
         },
         {
-              "exercice": "Triceps testa barra w",
+              "exerciceName": "Triceps testa barra w",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -128,7 +128,7 @@
     {
       "day": [
         {
-              "exercice": "Agachamento livre*",
+              "exerciceName": "Agachamento livre*",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -143,7 +143,7 @@
               "restDay": false
         },
         {
-              "exercice": "Agachamento hack",
+              "exerciceName": "Leg Press",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -158,7 +158,7 @@
               "restDay": false
         },
         {
-              "exercice": "Cadeira extensora",
+              "exerciceName": "Cadeira extensora",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -173,7 +173,7 @@
               "restDay": false
         },
         {
-              "exercice": "Deadlift*",
+              "exerciceName": "Deadlift*",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -188,7 +188,7 @@
               "restDay": false
         },
         {
-              "exercice": "Mesa flexora",
+              "exerciceName": "Mesa flexora",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -203,7 +203,7 @@
               "restDay": false
         },
         {
-              "exercice": "Flexão plantar unilateral",
+              "exerciceName": "Flexão plantar unilateral",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -229,7 +229,7 @@
     {
       "day": [
         {
-              "exercice": "Remada barra reta*",
+              "exerciceName": "Remada barra reta*",
               "oneRM": 0,
               "percentage": 85,
               "weight": 0,
@@ -244,7 +244,7 @@
               "restDay": false
         },
         {
-              "exercice": "Puxada pegada supinada",
+              "exerciceName": "Puxada pegada supinada",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -259,7 +259,7 @@
               "restDay": false
         },
         {
-              "exercice": "Remada triangulo",
+              "exerciceName": "Remada triangulo",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -274,7 +274,7 @@
               "restDay": false
         },
         {
-              "exercice": "Elevação de ombros HBC",
+              "exerciceName": "Elevação de ombros HBC",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -289,7 +289,7 @@
               "restDay": false
         },
         {
-              "exercice": "Desenvolvimento HBC/Barra (em pé)",
+              "exerciceName": "Desenvolvimento HBC/Barra (em pé)",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -304,7 +304,7 @@
               "restDay": false
         },
         {
-              "exercice": "Remada alta HBC",
+              "exerciceName": "Remada alta HBC",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -319,7 +319,7 @@
               "restDay": false
         },
         {
-              "exercice": "Abdução de ombros HBC/cabo (unilateral)",
+              "exerciceName": "Abdução de ombros HBC/cabo (unilateral)",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -338,7 +338,7 @@
     {
       "day": [
         {
-              "exercice": "Agachamento livre*",
+              "exerciceName": "Agachamento livre*",
               "oneRM": 0,
               "percentage": 85,
               "weight": 0,
@@ -353,22 +353,7 @@
               "restDay": false
         },
         {
-              "exercice": "Agachamento hack",
-              "oneRM": 0,
-              "percentage": 0,
-              "weight": 0,
-              "weightInput": false,
-              "sets": 3,
-              "reps": "8 - 10",
-              "rpe": 0,
-              "isAMRAP": false,
-              "amrap": 0,
-              "rir": 0,
-              "description": "",
-              "restDay": false
-        },
-        {
-              "exercice": "Leg Press",
+              "exerciceName": "Leg Press",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -383,7 +368,22 @@
               "restDay": false
         },
         {
-              "exercice": "Cadeira extensora",
+              "exerciceName": "Agachamento Bulgaro",
+              "oneRM": 0,
+              "percentage": 0,
+              "weight": 0,
+              "weightInput": false,
+              "sets": 3,
+              "reps": "8 - 10",
+              "rpe": 0,
+              "isAMRAP": false,
+              "amrap": 0,
+              "rir": 0,
+              "description": "",
+              "restDay": false
+        },
+        {
+              "exerciceName": "Cadeira extensora",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -398,7 +398,7 @@
               "restDay": false
         },
         {
-              "exercice": "Deadlift*",
+              "exerciceName": "Deadlift*",
               "oneRM": 0,
               "percentage": 85,
               "weight": 0,
@@ -413,7 +413,7 @@
               "restDay": false
         },
         {
-              "exercice": "Mesa flexora",
+              "exerciceName": "Mesa flexora",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -428,7 +428,7 @@
               "restDay": false
         },
         {
-              "exercice": "Flexão plantar",
+              "exerciceName": "Flexão plantar",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -447,7 +447,7 @@
     {
       "day": [
         {
-              "exercice": "Supino barra reta*",
+              "exerciceName": "Supino barra reta*",
               "oneRM": 0,
               "percentage": 85,
               "weight": 0,
@@ -462,7 +462,7 @@
               "restDay": false
         },
         {
-              "exercice": "Supino inclinado HBC",
+              "exerciceName": "Supino inclinado HBC",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -477,7 +477,7 @@
               "restDay": false
         },
         {
-              "exercice": "Supino máquina",
+              "exerciceName": "Supino máquina",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -492,7 +492,7 @@
               "restDay": false
         },
         {
-              "exercice": "Crucifixo polia baixa",
+              "exerciceName": "Crucifixo polia baixa",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -507,7 +507,7 @@
               "restDay": false
         },
         {
-              "exercice": "Biceps scott barra w",
+              "exerciceName": "Biceps scott barra w",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -522,7 +522,7 @@
               "restDay": false
         },
         {
-              "exercice": "Biceps concentrado unilateral",
+              "exerciceName": "Biceps concentrado unilateral",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -537,7 +537,7 @@
               "restDay": false
         },
         {
-              "exercice": "Biceps martelo HBC",
+              "exerciceName": "Biceps martelo HBC",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -552,7 +552,7 @@
               "restDay": false
         },
         {
-              "exercice": "Triceps francês unilateral",
+              "exerciceName": "Triceps francês unilateral",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -567,7 +567,7 @@
               "restDay": false
         },
         {
-              "exercice": "Triceps corda",
+              "exerciceName": "Triceps corda",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,
@@ -582,7 +582,7 @@
               "restDay": false
         },
         {
-              "exercice": "Triceps coice corda",
+              "exerciceName": "Triceps coice corda",
               "oneRM": 0,
               "percentage": 0,
               "weight": 0,

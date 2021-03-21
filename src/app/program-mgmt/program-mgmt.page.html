@@ -1,37 +1,216 @@
 <ion-router-outlet id="main" [animated]="false"></ion-router-outlet>
 
-<ion-header>
+<ion-header [translucent]="true" mode="md">
   <ion-toolbar>
-      <ion-icon name="menu-sharp" style="margin-left:15px;" slot="start" class="menuIcon" (click)="openMenuButton();"></ion-icon>
-    <ion-title class="headerPadding">Program Management</ion-title>
+      <ion-icon name="menu-sharp" style="margin-left:15px;" slot="start" class="menuIcon" (click)="openMenuButton();" *ngIf="firstPage"></ion-icon>
+      <ion-icon name="chevron-back" style="margin-left:15px;" slot="start" class="menuIcon" (click)="goBack();" *ngIf="!firstPage"></ion-icon>
+      <ion-icon name="ellipsis-vertical" style="margin-right:15px;" slot="end" class="menuIcon"
+                (click)="openOptionsPopover();" *ngIf="oneRMPage || weekListPage || dayListPage"></ion-icon>
+    <ion-title class="headerPadding">{{pageTitle}}</ion-title>
   </ion-toolbar>
+
+  <ion-segment [(ngModel)]="selectedSegment" value=selectedSegment (ionChange)="segmentChanged($event, i)" color="secondary" scrollable mode="md" scrollbar-x="false" mode="md" *ngIf="dayListPage">
+    <ion-segment-button mode="md" [value]="item" *ngFor="let item of segmentList; let i = index" (click)="_segmentSelected(item, i)" id="{{ 'segmentId' + i }}">
+      <ion-label>{{item}}</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
 </ion-header>
 
+<div id="optionsPopover" *ngIf="!optionsPopoverClosed" style="z-index: +1;">
+  <ion-card class="optionsPopover">
+      <ion-item (click)="goOneRMPage()" *ngIf="!oneRMPage" >
+        <ion-icon slot="start" src="./assets/icon/edit.svg"></ion-icon>
+        <ion-label>Edit 1RMs</ion-label>
+      </ion-item>
+      <ion-item (click)="saveProgram()">
+        <ion-icon slot="start" src="./assets/icon/save.svg"></ion-icon>
+        <ion-label>Save Program</ion-label>
+      </ion-item>
+  </ion-card>
+  <ion-backdrop (click)="closeOptionsPopover();" id="backdrop1" tappable="true"></ion-backdrop>
+</div>
+
+<ion-item lines="none" class="emptyDayText" *ngIf="dayListPage && weekList[weekIndexControl].day[id].length == 0">
+  <!-- <ion-label style="font-weight: bold; font-size: 25px;">Click the plus icon to add an exercise.</ion-label><br> -->
+  <strong style="font-size: 16px;">Leave empty for rest day.</strong><br><br>
+</ion-item>
+<ion-button shape="round" mode="md" class="add2" color="secondary" (click)="addExercise(id)" *ngIf="dayListPage && weekList[weekIndexControl].day[id].length == 0">Add Exercise</ion-button>
+
 <ion-content>
-  <div id="container">
-    <strong>This is where you'll add</strong><br>
-    <strong>and edit your training programs.</strong><br>
-    <!-- <br><p>.</p><br> -->
+
+<!-- div - *ngIf="are there any saved programs?" -->
+  <div id="container" *ngIf="firstPage"> <!-- list with stored program templates -->
+    <strong>This is where you'll create</strong><br>
+    <strong>and edit your training programs.</strong><br><br>
+
+    <strong>Click the plus icon to create a new program.</strong><br><br>
+
+    <!-- <strong>Your programs will work as templates.</strong><br>
+    <strong>Once you've created one you'll be</strong><br>
+    <strong>able to set it as active and then</strong><br>
+    <strong>fill in your 1RMs.</strong><br> -->
   </div>
 
-    <!-- <ion-fab vertical="bottom" horizontal="end" style="position: fixed; --padding-end: 20px;" color="secondary">
-      <ion-fab-button>
-        <ion-icon name="add"></ion-icon>
-      </ion-fab-button>
-    </ion-fab> -->
+  <div class="oneRMPage" *ngIf="oneRMPage">
 
-    <ion-fab horizontal="end" vertical="bottom" slot="fixed">
-        <ion-fab-button color="secondary">
-          <ion-icon md="chevron-up" color="dark"></ion-icon>
-        </ion-fab-button>
-        <ion-fab-list side="top">
-          <ion-fab-button color="light">
-            <ion-icon name="add" color="dark"></ion-icon>
-          </ion-fab-button>
-          <ion-fab-button color="light">
-            <ion-icon name="create" color="dark"></ion-icon>
-          </ion-fab-button>
-        </ion-fab-list>
-      </ion-fab>
+      <ion-chip color="light" style="margin-top: 15px; width: 90%;">
+        <ion-input style="font-weight: bold; font-size: 20px; text-align: left;" placeholder="Program Name" [(ngModel)]="programName"></ion-input>
+      </ion-chip>
+
+      <ion-card style="margin: 20px auto;" class="divSeparator">
+        <ion-item>
+          <ion-label style="padding-left: 10px; font-weight: bold; font-size: 20px;">Weight Unit: </ion-label>
+
+          <ion-row class="ion-text-center ion-aling-self-center" style="padding-right: 15%;">
+            <ion-label style="font-weight: bold; font-size: 20px;">kg</ion-label>
+            <ion-toggle class="toggleWeightUnit" [(ngModel)]="weightUnitChange" (ionChange)="changeWeightUnit($event)"></ion-toggle>
+            <ion-label style="font-weight: bold; font-size: 20px;">lbs</ion-label>
+          </ion-row>
+        </ion-item>
+      </ion-card>
+
+      <ng-container *ngIf="oneRMList.length == 0">
+
+        <strong style="font-size: 20px;">Here you will input</strong><br>
+        <strong style="font-size: 20px;">and edit your 1RMs.</strong><br><br>
+
+        <strong style="font-size: 16px;">They are not necessary to create</strong><br>
+        <strong style="font-size: 16px;">a program. They serve as parameters to</strong><br>
+        <strong style="font-size: 16px;">calculate percentages.</strong><br><br>
+      </ng-container>
+
+      <ng-container *ngFor="let item of oneRMList; let i = index">
+
+        <ion-card style="margin: 20px auto; max-width: 90%;" class="divSeparator">
+          <ion-card-content style="padding-top: 5px; padding-bottom: 5px;">
+
+            <ion-item lines="none">
+              <!-- <ion-label style="font-weight: bold; font-size: 20px;">Week {{i+1}}</ion-label> -->
+              <ion-input type="text" style="font-weight: bold; font-size: 18px;" placeholder="Exercise name" [(ngModel)]="item.exerciseName"></ion-input>
+              <ion-icon slot="end" src="./assets/icon/edit.svg" (click)="editRM(i)" *ngIf="!editRMlist"></ion-icon>
+              <ion-icon slot="end" name="checkmark-sharp" (click)="confirmEditRM(i)" *ngIf="editRMlist"></ion-icon>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-input type="tel" [attr.maxlength]="4" style="font-weight: bold; font-size: 18px;" placeholder="1RM" [(ngModel)]="item.oneRM"></ion-input>
+              <ion-label style="font-weight: bold; font-size: 18px; margin-right: 73%;" >{{weightUnit}}</ion-label>
+              <ion-icon slot="end" style="margin-left: 0;" name="trash-outline" (click)="removeRM(i)" *ngIf="editRMlist"></ion-icon>
+              <ion-icon slot="end" style="margin-left: 0;" *ngIf="!editRMlist"></ion-icon>
+            </ion-item>
+
+          </ion-card-content>
+        </ion-card>
+
+      </ng-container>
+
+      <ion-button shape="round" mode="md" class="add" color="secondary" (click)="addRM()" *ngIf="oneRMPage">Add Exercise</ion-button>
+      <ion-button shape="round" mode="md" class="add" color="secondary" (click)="closeOneRMpage()" *ngIf="oneRMPage">Finish</ion-button>
+  </div>
+
+  <!-- | slice: i:i+1 -->
+  <div class="weekListPage" *ngIf="weekListPage">
+      <ion-chip color="light" style="margin-top: 15px; width: 90%;">
+        <ion-input style="font-weight: bold; font-size: 20px; text-align: left;" placeholder="Program Name" [(ngModel)]="programName"></ion-input>
+      </ion-chip>
+
+      <ng-container *ngFor="let item of weekList; let i = index">
+
+        <ion-card style="margin: 20px auto;" class="divSeparator">
+          <ion-card-content style="padding-top: 5px; padding-bottom: 5px;">
+            <ion-item lines="none">
+              <ion-label style="font-weight: bold; font-size: 20px;">Week {{i+1}}</ion-label>
+              <ion-icon slot="end" name="trash-outline" (click)="removeWeek(i)"></ion-icon>
+              <ion-icon slot="end" name="chevron-forward" (click)="goWeek(i)"></ion-icon>
+            </ion-item>
+            </ion-card-content>
+          </ion-card>
+
+      </ng-container>
+
+      <ion-button shape="round" mode="md" class="add" color="secondary" (click)="addWeek()" *ngIf="weekListPage">Add Week</ion-button>
+  </div>
+
+  <div class="dayListPage" *ngIf="dayListPage">
+
+    <ion-slides #slide [options]="slideOptions" (ionSlideDidChange)="_ionSlideDidChange($event)" mode="md">
+      <ng-container *ngFor="let item of slideList; let i = index">
+
+        <ng-container *ngIf="!weekList[weekIndexControl].day[id].length == 0">
+          <ion-slide *ngFor="let data of weekList[this.weekIndexControl].day[i] | slice: i:i+1" >
+            <div no-lines no-padding no-margin mode="md">
+              <!-- | slice: i:i+1 -->
+                <!-- <ion-item *ngFor="let dado of data.day" lines="none" mode="md"> -->
+
+                  <ng-container *ngFor="let item of weekList[weekIndexControl].day[id]; let j = index">
+                    <ion-card style="margin-top: 20px !important; margin-bottom: 20px !important;" class="divSeparator">
+                      <ion-card-content>
+                        <ion-item lines="none" style="--padding-start: 0px;">
+                          <ion-chip color="light">
+                            <ion-input type="text" style="font-weight: bold; font-size: 20px;" placeholder="Exercise {{j+1}}" [(ngModel)]="item.exerciseName"></ion-input>
+                          </ion-chip>
+                          <ion-icon slot="end"name="trash-outline" (click)="removeExercise(j)"></ion-icon>
+                        </ion-item>
+
+                        <ion-item>
+                          <ion-label>Sets</ion-label> 
+                          <ion-input></ion-input>
+                          <ion-label>Reps</ion-label>
+                          <ion-input></ion-input>
+                          <ion-label>Percentage</ion-label>
+                          <ion-input></ion-input>
+                        </ion-item>
+
+                        <ion-item>
+                          <ion-label>RPE RIR</ion-label>
+                          <ion-toggle></ion-toggle>
+                          <ion-input></ion-input>
+                          <ion-label>AMRAP</ion-label>
+                          <ion-toggle></ion-toggle>
+                          <ion-input></ion-input>
+                        </ion-item>
+
+                        <ion-item lines="none">
+                          <ion-label style="margin-bottom: 0;" class="inputChip">Description: </ion-label>
+                        </ion-item>
+                        <ion-item lines="none" style="width: 97%; margin-left: 3%;">
+                          <ion-textarea mode="md" style="font-weight: bold; font-size: 18px; margin-top: 0;"[(ngModel)]="item.description"></ion-textarea>
+                        </ion-item>
+
+                      </ion-card-content>
+                    </ion-card>
+                  </ng-container>
+
+
+
+                  <ion-button shape="round" mode="md" class="add" style="width: 94%;" color="secondary" (click)="addExercise(i)" *ngIf="dayListPage">Add Exercise</ion-button>
+                <!-- </ion-item> -->
+
+            </div>
+          </ion-slide>
+        </ng-container>
+        <!-- <ion-button shape="round" mode="md" class="add" color="secondary" (click)="addExercise(i)" *ngIf="dayListPage">Add Exercise</ion-button> -->
+      </ng-container>
+    </ion-slides>
+
+  </div>
+
+  <!-- <ion-fab vertical="bottom" horizontal="end" style="position: fixed; --padding-end: 20px;" color="secondary" *ngIf="oneRMPage">
+    <ion-fab-button color="secondary" (click)="addRM()">
+      <ion-icon color="dark" name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
+
+  <ion-fab vertical="bottom" horizontal="end" style="position: fixed; --padding-end: 20px;" color="secondary" *ngIf="firstPage">
+    <ion-fab-button color="secondary" (click)="createProgram()">
+      <ion-icon color="dark" name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab vertical="bottom" horizontal="end" style="position: fixed; --padding-end: 20px;" color="secondary" *ngIf="dayListPage">
+    <ion-fab-button color="secondary" (click)="addExercise(id)">
+      <ion-icon color="dark" name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 </ion-content>

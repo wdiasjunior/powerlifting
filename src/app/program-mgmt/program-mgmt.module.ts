@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ProgramMgmtPageRoutingModule } from './program-mgmt-routing.module';
 
 import { ProgramMgmtPage } from './program-mgmt.page';
+import { AccordionComponent } from "./../accordion/accordion.component";
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { ProgramMgmtPage } from './program-mgmt.page';
     IonicModule,
     ProgramMgmtPageRoutingModule
   ],
-  declarations: [ProgramMgmtPage]
+  declarations: [ProgramMgmtPage, AccordionComponent]
 })
 export class ProgramMgmtPageModule {}

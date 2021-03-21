@@ -53,14 +53,15 @@ export class CalculatorPage implements OnInit {
   ormPercent45: any;
   ormPercent40: any;
 
-  weightUnit: String;
+  weightUnit: string;
   //#endregion
 
 
   constructor(private router: Router,
               // private statusBar:StatusBar,
               private menu: MenuController,) {
-
+    this.weightLifted = 100;
+    this.repsPerformed = 1;
   }
 
   ngOnInit() {

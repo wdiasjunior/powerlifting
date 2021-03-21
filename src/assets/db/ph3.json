@@ -1,54 +1,345 @@
 {
 
-      "day": [
+  "program": [
+    {
+      "week":[
         {
-              "exercice": "Squat",
-              "has1RM": true,
-              "oneRM": 140,
-              "percentage": 80,
-              "weight": 80,
-              "sets": 3,
-              "reps": 5,
-              "hasRPE": true,
-              "rpe": 6,
-              "isAMRAP": true,
-              "amrap": 7,
-              "hasRIR": true,
-              "rir": 4,
-              "description": "test1"
+          "day": [
+            {
+                  "exercice": "Remada barra reta*",
+                  "oneRM": 0,
+                  "percentage": 0,
+                  "weight": 0,
+                  "weightInput": true,
+                  "sets": 3,
+                  "reps": "3 - 5",
+                  "rpe": 0,
+                  "isAMRAP": false,
+                  "amrap": 0,
+                  "rir": 0,
+                  "description": "*use o max de peso possível mantendo boa forma durante a execução do movimento",
+                  "restDay": false
+            }
+          ]
         },
         {
-              "exercice": "Bench",
-              "has1RM": true,
-              "oneRM": 115,
-              "percentage": 80,
-              "weight": 80,
-              "sets": 3,
-              "reps": 5,
-              "hasRPE": true,
-              "rpe": 6,
-              "isAMRAP": true,
-              "amrap": 7,
-              "hasRIR": true,
-              "rir": 4,
-              "description": "test2"
+          "day": [
+            {
+                  "exercice": "Agachamento livre*",
+                  "oneRM": 0,
+                  "percentage": 0,
+                  "weight": 0,
+                  "weightInput": true,
+                  "sets": 3,
+                  "reps": "3 - 5",
+                  "rpe": 0,
+                  "isAMRAP": false,
+                  "amrap": 0,
+                  "rir": 0,
+                  "description": "*use o max de peso possível mantendo boa forma durante a execução do movimento",
+                  "restDay": false
+            }
+          ]
         },
         {
-              "exercice": "Deadlift",
-              "has1RM": true,
-              "oneRM": 165,
-              "percentage": 80,
-              "weight": 80,
-              "sets": 3,
-              "reps": 5,
-              "hasRPE": true,
-              "rpe": 6,
-              "isAMRAP": true,
-              "amrap": 7,
-              "hasRIR": true,
-              "rir": 4,
-              "description": "test3"
+          "day": [
+            {
+                  "exercice": "Remada barra reta*",
+                  "oneRM": 0,
+                  "percentage": 85,
+                  "weight": 0,
+                  "weightInput": true,
+                  "sets": 4,
+                  "reps": "8 - 10",
+                  "rpe": 0,
+                  "isAMRAP": false,
+                  "amrap": 0,
+                  "rir": 0,
+                  "description": "*use pesos com 85% do peso usando no dia de intensidade",
+                  "restDay": false
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+                  "restDay": true
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+                  "exercice": "Agachamento livre*",
+                  "oneRM": 0,
+                  "percentage": 85,
+                  "weight": 0,
+                  "weightInput": true,
+                  "sets": 4,
+                  "reps": "8 - 10",
+                  "rpe": 0,
+                  "isAMRAP": false,
+                  "amrap": 0,
+                  "rir": 0,
+                  "description": "*use pesos com 85% do peso usando nos dias de intensidade",
+                  "restDay": false
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+                  "exercice": "Supino barra reta*",
+                  "oneRM": 0,
+                  "percentage": 85,
+                  "weight": 0,
+                  "weightInput": true,
+                  "sets": 4,
+                  "reps": "8 - 10",
+                  "rpe": 0,
+                  "isAMRAP": false,
+                  "amrap": 0,
+                  "rir": 0,
+                  "description": "*use pesos com 85% do peso usando nos dias de intensidade",
+                  "restDay": false
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+                  "restDay": true
+            }
+          ]
         }
       ]
+    },
+    {
+      "week":[
+        {
+          "day": [
+            {
+                  "exercice": "Remada barra reta*",
+                  "oneRM": 0,
+                  "percentage": 0,
+                  "weight": 0,
+                  "weightInput": true,
+                  "sets": 3,
+                  "reps": "3 - 5",
+                  "rpe": 0,
+                  "isAMRAP": false,
+                  "amrap": 0,
+                  "rir": 0,
+                  "description": "*use o max de peso possível mantendo boa forma durante a execução do movimento",
+                  "restDay": false
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+                  "exercice": "Agachamento livre*",
+                  "oneRM": 0,
+                  "percentage": 0,
+                  "weight": 0,
+                  "weightInput": true,
+                  "sets": 3,
+                  "reps": "3 - 5",
+                  "rpe": 0,
+                  "isAMRAP": false,
+                  "amrap": 0,
+                  "rir": 0,
+                  "description": "*use o max de peso possível mantendo boa forma durante a execução do movimento",
+                  "restDay": false
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+                  "exercice": "Remada barra reta*",
+                  "oneRM": 0,
+                  "percentage": 85,
+                  "weight": 0,
+                  "weightInput": true,
+                  "sets": 4,
+                  "reps": "8 - 10",
+                  "rpe": 0,
+                  "isAMRAP": false,
+                  "amrap": 0,
+                  "rir": 0,
+                  "description": "*use pesos com 85% do peso usando no dia de intensidade",
+                  "restDay": false
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+                  "restDay": true
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+                  "exercice": "Agachamento livre*",
+                  "oneRM": 0,
+                  "percentage": 85,
+                  "weight": 0,
+                  "weightInput": true,
+                  "sets": 4,
+                  "reps": "8 - 10",
+                  "rpe": 0,
+                  "isAMRAP": false,
+                  "amrap": 0,
+                  "rir": 0,
+                  "description": "*use pesos com 85% do peso usando nos dias de intensidade",
+                  "restDay": false
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+                  "exercice": "Supino barra reta*",
+                  "oneRM": 0,
+                  "percentage": 85,
+                  "weight": 0,
+                  "weightInput": true,
+                  "sets": 4,
+                  "reps": "8 - 10",
+                  "rpe": 0,
+                  "isAMRAP": false,
+                  "amrap": 0,
+                  "rir": 0,
+                  "description": "*use pesos com 85% do peso usando nos dias de intensidade",
+                  "restDay": false
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+                  "restDay": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week":[
+        {
+          "day": [
+            {
+                  "exercice": "Remada barra reta*",
+                  "oneRM": 0,
+                  "percentage": 0,
+                  "weight": 0,
+                  "weightInput": true,
+                  "sets": 3,
+                  "reps": "3 - 5",
+                  "rpe": 0,
+                  "isAMRAP": false,
+                  "amrap": 0,
+                  "rir": 0,
+                  "description": "*use o max de peso possível mantendo boa forma durante a execução do movimento",
+                  "restDay": false
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+                  "exercice": "Agachamento livre*",
+                  "oneRM": 0,
+                  "percentage": 0,
+                  "weight": 0,
+                  "weightInput": true,
+                  "sets": 3,
+                  "reps": "3 - 5",
+                  "rpe": 0,
+                  "isAMRAP": false,
+                  "amrap": 0,
+                  "rir": 0,
+                  "description": "*use o max de peso possível mantendo boa forma durante a execução do movimento",
+                  "restDay": false
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+                  "exercice": "Remada barra reta*",
+                  "oneRM": 0,
+                  "percentage": 85,
+                  "weight": 0,
+                  "weightInput": true,
+                  "sets": 4,
+                  "reps": "8 - 10",
+                  "rpe": 0,
+                  "isAMRAP": false,
+                  "amrap": 0,
+                  "rir": 0,
+                  "description": "*use pesos com 85% do peso usando no dia de intensidade",
+                  "restDay": false
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+                  "restDay": true
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+                  "exercice": "Agachamento livre*",
+                  "oneRM": 0,
+                  "percentage": 85,
+                  "weight": 0,
+                  "weightInput": true,
+                  "sets": 4,
+                  "reps": "8 - 10",
+                  "rpe": 0,
+                  "isAMRAP": false,
+                  "amrap": 0,
+                  "rir": 0,
+                  "description": "*use pesos com 85% do peso usando nos dias de intensidade",
+                  "restDay": false
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+                  "exercice": "Supino barra reta*",
+                  "oneRM": 0,
+                  "percentage": 85,
+                  "weight": 0,
+                  "weightInput": true,
+                  "sets": 4,
+                  "reps": "8 - 10",
+                  "rpe": 0,
+                  "isAMRAP": false,
+                  "amrap": 0,
+                  "rir": 0,
+                  "description": "*use pesos com 85% do peso usando nos dias de intensidade",
+                  "restDay": false
+            }
+          ]
+        },
+        {
+          "day": [
+            {
+                  "restDay": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
 
 }

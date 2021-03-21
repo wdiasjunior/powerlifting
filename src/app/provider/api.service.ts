@@ -12,7 +12,6 @@ export class ApiProvider {
   // url = 'http://localhost:3000/';
   // url = 'http://192.168.1.8:3000/';
   url = '/assets/db/';
-  // jsonFileExtension = '.json';
 
   constructor(public http: HttpClient,) {
 
@@ -23,7 +22,7 @@ export class ApiProvider {
       .get(this.url + fileName + '.json')
       .pipe(
         map((res: any) => {
-          // console.log(res);
+          console.log(res.program);
           return res.program;
         }),
       );

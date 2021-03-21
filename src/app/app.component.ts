@@ -20,12 +20,12 @@ export class AppComponent {
               private menu: MenuController) {  }
 
   initializeApp() {
-    // this.platform.ready().then(() => {
+    this.platform.ready().then(() => {
+        this.splashScreen.hide();
     //   this.statusBar.styleDefault();
     //   this.statusBar.overlaysWebView(false);
       // this.statusBar.backgroundColorByHexString('#1F1F1F');
-    //   this.splashScreen.hide();
-    // });
+    });
   }
 
   openMenuButton() {

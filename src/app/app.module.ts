@@ -16,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule,
-            IonicModule.forRoot(),
+            IonicModule.forRoot({ swipeBackEnabled: false }),
             AppRoutingModule,
             HttpClientModule,],
   providers: [

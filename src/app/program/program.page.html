@@ -7,7 +7,6 @@
     <ion-icon name="ellipsis-vertical" style="margin-right:15px;" slot="end" class="menuIcon" (click)="optionsPopover();"></ion-icon>
   </ion-toolbar>
 
-
   <ion-segment [(ngModel)]="selectedSegment" value=selectedSegment (ionChange)="segmentChanged($event, i)" color="secondary" scrollable mode="md" scrollbar-x="false" mode="md">
     <ion-segment-button mode="md" [value]="item" *ngFor="let item of segmentList; let i = index" (click)="_segmentSelected(item, i)" id="{{ 'segmentId' + i }}">
       <ion-label>{{item}}</ion-label>
@@ -18,16 +17,15 @@
 
 <ion-content>
 
-
   <ion-slides #slide [options]="slideOptions" (ionSlideDidChange)="_ionSlideDidChange($event)" mode="md">
-    <ng-container *ngFor="let item of slideList" >
-      <ion-slide *ngFor="let data of activeProgramData" >
+    <ng-container *ngFor="let item of slideList; let i = index">
+      <ion-slide *ngFor="let data of activeProgramData | slice: i:i+1" >
       <!--           ion-list, ion-item, no padding, no lines.    accordion center subTitle text                -->
       <!-- <ion-item *ngFor='let item of items | slice:start_at_item:end_at_item'> -->
         <div no-lines no-padding no-margin mode="md">
             <ion-item *ngFor="let dado of data.day" lines="none" mode="md">
 
-                <app-accordion title="{{dado.exercice}}" *ngIf="!dado.restDay">
+                <app-accordion title="{{dado.exerciceName}}" *ngIf="!dado.restDay">
                   <ion-row>
                     <ion-col size="auto">
                       <ion-chip color="light">
@@ -38,8 +36,8 @@
                     <ion-col size="auto" no-padding>
                       <ion-chip color="light" style="width: 160px" *ngIf="dado.weightInput">
                         <ion-label class="amrapChip">Weight: </ion-label>
-                        <ion-input style="text-align: right;" [attr.maxlength]="4" [(ngModel)]="dado.weight" (keyup)="setWeight();"></ion-input>
-                        <ion-label style="padding-right: 10px; margin-left: 5px"> kg </ion-label>
+                        <ion-input type="tel" style="text-align: right;" [attr.maxlength]="4" [(ngModel)]="dado.weight" (keyup)="setWeight();"></ion-input>
+                        <ion-label style="padding-right: 10px; margin-left: 5px"> {{weightUnit}} </ion-label>
                       </ion-chip>
                     </ion-col>
                   </ion-row>
@@ -60,7 +58,7 @@
                     <ion-col size="auto">
                       <ion-chip color="light" style="width: 120px" *ngIf="dado.isAMRAP">
                         <ion-label class="amrapChip">AMRAP: </ion-label>
-                        <ion-input [attr.maxlength]="2" [(ngModel)]="dado.amrap" (keyup)="setAMRAP();"></ion-input>
+                        <ion-input type="tel" [attr.maxlength]="2" [(ngModel)]="dado.amrap" (keyup)="setAMRAP();"></ion-input>
                       </ion-chip>
                     </ion-col>
                   </ion-row>
@@ -72,7 +70,6 @@
                           {{dado.description}}
                         </p>
                       </b>
-
                     </ion-col>
                   </ion-row>
 
@@ -87,7 +84,7 @@
                 <b style="text-align: center; transform: translateY(-50%); position: relative; top: 50%; margin: auto;" *ngIf="dado.restDay"> Rest Day </b>
 
             </ion-item>
-            <!-- <ion-button shape="round" mode="md" class="buttonFinish" color="secondary" *ngIf="!data.day.restDay">Finish Workout</ion-button>   -->
+            <!-- <ion-button shape="round" mode="md" class="buttonFinish" color="secondary" *ngIf="!data.day.restDay">Finish Workout</ion-button> -->
             <!-- *ngIf="!dado.restDay" -->
         </div>
 
